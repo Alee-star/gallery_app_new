@@ -3,7 +3,7 @@ import Button from "../Button";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [navItem, setNavItem] = useState("Home");
+  const [selectedNavItem, setSelectedNavItem] = useState("Home");
   const navItems = [
     "Home",
     "Videos",
@@ -13,7 +13,7 @@ const Navbar = () => {
   ];
 
   const handleTabChange = (tab) => {
-    setNavItem(tab);
+    setSelectedNavItem(tab);
   };
 
   return (
@@ -23,7 +23,9 @@ const Navbar = () => {
           {navItems.map((item) => (
             <li
               key={item}
-              className={`list-item ${navItem === item ? "active" : ""}`}
+              className={`list-item ${
+                selectedNavItem === item ? "active" : ""
+              }`}
               onClick={() => handleTabChange(item)}
             >
               {item}
