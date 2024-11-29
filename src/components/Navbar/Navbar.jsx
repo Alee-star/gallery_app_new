@@ -3,7 +3,7 @@ import Button from "../Button";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("Home");
+  const [navItem, setNavItem] = useState("Home");
   const navItems = [
     "Home",
     "Videos",
@@ -13,17 +13,17 @@ const Navbar = () => {
   ];
 
   const handleTabChange = (tab) => {
-    setActiveTab(tab);
+    setNavItem(tab);
   };
 
   return (
-    <nav className="navpart">
+    <nav className="navigation-part">
       <div className="navbar">
         <ul className="nav-list">
           {navItems.map((item) => (
             <li
               key={item}
-              className={`list-item ${activeTab === item ? "active" : ""}`}
+              className={`list-item ${navItem === item ? "active" : ""}`}
               onClick={() => handleTabChange(item)}
             >
               {item}
@@ -31,9 +31,9 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-      <div className="below-nav">
+      <div className="below-navigation">
         <h4>Free Stock Photos</h4>
-        <Button className="nav-button" label="Trending" isDisabled={true} />
+        <Button className="navigation-button" label="Trending" isDisabled />
       </div>
     </nav>
   );

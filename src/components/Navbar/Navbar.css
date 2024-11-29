@@ -1,4 +1,4 @@
-.navpart {
+.navigation-part {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -38,7 +38,7 @@
   padding: 0 20px;
 }
 
-.below-nav {
+.below-navigation {
   display: flex;
   flex-direction: row;
   color: #2c343e;
@@ -51,20 +51,20 @@
 }
 
 @media (min-width: 901px) {
-  .below-nav {
+  .below-navigation {
     padding-right: 30px;
     padding-left: 30px;
   }
 }
 
 @media (min-width: 1441px) {
-  .below-nav {
+  .below-navigation {
     padding-right: 80px;
     padding-left: 80px;
   }
 }
 
-.nav-button {
+.navigation-button {
   background: #fff;
   color: #000;
   cursor: pointer;
