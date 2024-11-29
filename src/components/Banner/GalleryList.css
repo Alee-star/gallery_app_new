@@ -1,7 +1,7 @@
 .image-section {
   display: grid;
-  gap: 16px;
   grid-template-columns: 1fr;
+  gap: 16px;
 }
 
 @media (min-width: 601px) {
