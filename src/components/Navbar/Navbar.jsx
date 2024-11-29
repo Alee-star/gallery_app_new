@@ -12,8 +12,8 @@ const Navbar = () => {
     "Favourites",
   ];
 
-  const handleTabChange = (item) => {
-    setSelectedNavItem(item);
+  const handleTabChange = (tab) => {
+    setSelectedNavItem(tab);
   };
 
   return (
