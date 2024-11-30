@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ImageHover from "./ImageHover";
+import ImageCard from "./ImageCard";
 import "./GalleryList.css";
 
 const ImageSection = () => {
   const [photos, setPhotos] = useState([]);
-  const [hovered, setHovered] = useState(null);
 
   useEffect(() => {
     axios
@@ -21,17 +20,7 @@ const ImageSection = () => {
   return (
     <div className="image-section">
       {photos.map((photo) => (
-        <div
-          className="image-card"
-          key={photo.id}
-          onMouseEnter={() => setHovered(photo.id)}
-          onMouseLeave={() => setHovered(null)}
-        >
-          <div className="card">
-            <img src={photo.url} alt={photo.title} className="card-img" />
-          </div>
-          {hovered === photo.id && <ImageHover />}
-        </div>
+        <ImageCard key={photo.id} photo={photo} />
       ))}
     </div>
   );
