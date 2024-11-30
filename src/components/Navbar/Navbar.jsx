@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../Button";
 import "./Navbar.css";
 
-const Navbar = () => {
-  const [selectedNavItem, setSelectedNavItem] = useState("Home");
-
+const Navbar = ({ selectedNavItem, handleTabChange }) => {
   const navItems = [
     "Home",
     "Videos",
@@ -12,10 +10,6 @@ const Navbar = () => {
     "Challenges",
     "Favourites",
   ];
-
-  const handleTabChange = (tab) => {
-    setSelectedNavItem(tab);
-  };
 
   return (
     <nav className="navigation-part">

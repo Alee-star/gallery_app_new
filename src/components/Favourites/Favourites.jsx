@@ -1,24 +1,14 @@
 import React from "react";
 import "./Favourites.css";
+import ImageCard from "../Banner/ImageCard";
 
-const Favourites = ({ favourites }) => {
-  return (
-    <div className="favourites">
-      <div className="favourite-images">
-        {favourites.length === 0 ? (
-          <p>No Favourites</p>
-        ) : (
-          favourites.map((fav) => (
-            <img
-              src={fav.url}
-              key={fav.id}
-              alt={fav.title}
-              className="fav-image"
-            />
-          ))
-        )}
-      </div>
-    </div>
+const Favourites = ({ photos }) => {
+  return photos.length > 0 ? (
+    photos.map((photo) => (
+      <ImageCard key={photo.id} photo={photo} IsLike={photo.favourite} />
+    ))
+  ) : (
+    <p>No Favourites</p>
   );
 };
 
