@@ -1,0 +1,15 @@
+.favourites {
+  margin-bottom: 20px;
+}
+
+.favourite-images {
+  display: flex;
+  gap: 10px;
+}
+
+.fav-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: none;
+}

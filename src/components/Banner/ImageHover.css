@@ -1,0 +1,77 @@
+.hover-part {
+  width: 100%;
+  height: 100%;
+}
+
+.hover-top {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.icon-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+}
+
+.icon-image img {
+  height: 24px;
+  width: 24px;
+  fill: #4a4a4a;
+}
+
+.icon-image.liked {
+  background-color: rgb(245, 7, 7);
+}
+
+.hover-bottom {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  width: 135px;
+}
+
+.download-part {
+  color: #fff;
+  background: #05a081;
+  border-color: #05a081;
+  height: 50px;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: #05a081;
+}
+
+.download-button img {
+  height: 24px;
+  width: 24px;
+  filter: invert();
+}
+
+.download-text {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #fff;
+  line-height: 1.3;
+  padding-right: 10px;
+}
