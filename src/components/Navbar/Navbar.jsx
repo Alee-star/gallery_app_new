@@ -4,6 +4,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
+
   const navItems = [
     "Home",
     "Videos",
