@@ -21,23 +21,26 @@ const ImageCard = ({ photo, IsLike, addToFavourites }) => {
             <li className="hover-icon">
               <Button
                 className="icon-image"
-                label={<img src="/assets/copy.svg" alt="copy" />}
-              ></Button>
+                label={<img src="/assets/copy.svg" alt="Copy icon" />}
+              />
             </li>
             <li className="hover-icon">
               <Button
                 className={`icon-image ${IsLike ? "liked" : ""}`}
-                label={<img src="/assets/like.svg" alt="like" />}
+                label={<img src="/assets/like.svg" alt="Like icon" />}
                 onClick={() => addToFavourites(photo.id)}
-              ></Button>
+              />
             </li>
           </ul>
           <div className="hover-bottom">
+            <div className="hover-title">
+              <span className="title-text">{photo.title}</span>
+            </div>
             <div className="download-part">
               <Button
                 className="download-button"
-                label={<img src="/assets/download.svg" alt="download" />}
-              ></Button>
+                label={<img src="/assets/download.svg" alt="Download icon" />}
+              />
               <span className="download-text">Download</span>
             </div>
           </div>

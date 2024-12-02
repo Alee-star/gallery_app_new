@@ -45,7 +45,10 @@ const ImageSection = ({}) => {
       />
       <div className="image-section">
         {selectedNavItem === "Favourites" ? (
-          <Favourites photos={photos.filter((photo) => photo.favourite)} />
+          <Favourites
+            photos={photos.filter((photo) => photo.favourite)}
+            addToFavourites={addToFavourites}
+          />
         ) : (
           photos.map((photo) => (
             <ImageCard
