@@ -3,7 +3,7 @@ import Button from "../Button";
 import "../Button.css";
 import "./ImageCard.css";
 
-const ImageCard = ({ photo }) => {
+const ImageCard = ({ photo, IsLike, addToFavourites }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -26,8 +26,9 @@ const ImageCard = ({ photo }) => {
             </li>
             <li className="hover-icon">
               <Button
-                className="icon-image"
+                className={`icon-image ${IsLike ? "liked" : ""}`}
                 label={<img src="/assets/like.svg" alt="Like icon" />}
+                onClick={() => addToFavourites(photo.id)}
               />
             </li>
           </ul>
