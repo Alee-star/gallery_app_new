@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ImageCard from "./ImageCard";
-import Favourites from "../Favourites/Favourites";
 import Navbar from "../Navbar/Navbar";
+import Favourites from "../Favourites/Favourites";
+import ImageCard from "./ImageCard";
 import "../Favourites/Favourites.css";
 import "./GalleryList.css";
 
-const ImageSection = ({}) => {
+const ImageSection = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
