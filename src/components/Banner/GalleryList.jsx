@@ -5,19 +5,11 @@ import Favourites from "../Favourites/Favourites";
 import ImageCard from "./ImageCard";
 import "../Favourites/Favourites.css";
 import "./GalleryList.css";
+import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
 
 const ImageSection = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
-
-  const getFavFromLocalStorage = () => {
-    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
-    return favourites;
-  };
-
-  const saveFavInLocalStorage = (favourites) => {
-    localStorage.setItem("favourites", JSON.stringify(favourites));
-  };
 
   useEffect(() => {
     axios
@@ -25,7 +17,9 @@ const ImageSection = () => {
       .then((response) => {
         const photosWithFavourites = response.data.map((photo) => ({
           ...photo,
-          favourite: getFavFromLocalStorage().includes(photo.id),
+          favourite: getFavFromLocalStorage().some(
+            (fav) => fav.id === photo.id
+          ),
         }));
         setPhotos(photosWithFavourites);
       })
@@ -34,24 +28,20 @@ const ImageSection = () => {
       });
   }, []);
 
-  const toggleFavourite = (photoId) => {
+  const handleToggleFavourite = (photo) => {
     const currentFavourites = getFavFromLocalStorage();
-    const updatedFavourites = currentFavourites.includes(photoId)
-      ? currentFavourites.filter((id) => id !== photoId)
-      : [...currentFavourites, photoId];
-
-    saveFavInLocalStorage(updatedFavourites);
-
-    setPhotos((prevPhotos) =>
-      prevPhotos.map((photo) =>
-        photo.id === photoId ? { ...photo, favourite: !photo.favourite } : photo
-      )
+    const updatedFavourites = toggleFavourite(photo, currentFavourites);
+    const updatedPhotos = photos.map((p) =>
+      p.id === photo.id ? { ...p, favourite: !p.favourite } : p
     );
+    setPhotos(updatedPhotos);
   };
 
   const handleTabChange = (tab) => {
     setSelectedNavItem(tab);
   };
+
+  const favouritePhotos = photos.filter((photo) => photo.favourite);
 
   return (
     <div className="gallery-list">
@@ -62,15 +52,15 @@ const ImageSection = () => {
       <div className="image-section">
         {selectedNavItem === "Favourites" ? (
           <Favourites
-            photos={photos.filter((photo) => photo.favourite)}
-            addToFavourites={toggleFavourite}
+            photos={favouritePhotos}
+            addToFavourites={handleToggleFavourite}
           />
         ) : (
           photos.map((photo) => (
             <ImageCard
               key={photo.id}
               photo={photo}
-              addToFavourites={toggleFavourite}
+              addToFavourites={handleToggleFavourite}
               IsLike={photo.favourite}
             />
           ))

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Leaderboard = () => {
-  return <p>No data available</p>;
+  return;
 };
 
 export default Leaderboard;
