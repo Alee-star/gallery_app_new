@@ -1,29 +1,22 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
-
-const Navbar = ({ selectedNavItem, handleTabChange }) => {
-  const navItems = [
-    "Home",
-    "Videos",
-    "Leaderboard",
-    "Challenges",
-    "Favourites",
-  ];
-
+const Navbar = ({ handleTabChange }) => {
+  const navItems = ["Home", "Photos", "Favourites"];
   return (
     <nav className="navigation-part">
       <div className="navbar">
         <ul className="nav-list">
           {navItems.map((item) => (
-            <li
-              key={item}
-              className={`list-item ${
-                selectedNavItem === item ? "active" : ""
-              }`}
-              onClick={() => handleTabChange(item)}
-            >
-              {item}
+            <li key={item} className="list-item">
+              <NavLink
+                to={`/${item.toLowerCase()}`}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => handleTabChange(item)}
+              >
+                {item}
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -35,5 +28,4 @@ const Navbar = ({ selectedNavItem, handleTabChange }) => {
     </nav>
   );
 };
-
 export default Navbar;
