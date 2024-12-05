@@ -4,12 +4,14 @@ import Heading from "./components/Header/Heading";
 import Home from "./pages/Home/Home";
 import Photos from "./pages/Photos";
 import FavouritePage from "./pages/FavouritePage";
+import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Heading />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/home" element={<Home />} />

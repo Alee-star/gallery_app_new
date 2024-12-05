@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../Navbar/Navbar";
 import Favourites from "../Favourites/Favourites";
 import ImageCard from "./ImageCard";
 import "../Favourites/Favourites.css";
@@ -45,10 +44,6 @@ const ImageSection = () => {
 
   return (
     <div className="gallery-list">
-      <Navbar
-        selectedNavItem={selectedNavItem}
-        handleTabChange={handleTabChange}
-      />
       <div className="image-section">
         {selectedNavItem === "Favourites" ? (
           <Favourites

@@ -1,5 +1,3 @@
-// utils/favouritesUtils.js
-
 export const getFavFromLocalStorage = () => {
   const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
   return favourites;
