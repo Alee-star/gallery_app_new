@@ -45,10 +45,10 @@ const ImageSection = () => {
 
   return (
     <div className="gallery-list">
-      <Navbar
+      {/* <Navbar
         selectedNavItem={selectedNavItem}
         handleTabChange={handleTabChange}
-      />
+      /> */}
       <div className="image-section">
         {selectedNavItem === "Favourites" ? (
           <Favourites

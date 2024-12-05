@@ -20,7 +20,6 @@ const FavouritePage = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="image-section">
         <Favourites
           photos={favouritePhotos}
