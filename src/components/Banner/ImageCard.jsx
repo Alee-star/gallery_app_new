@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Button from "../Button";
 import "../Button.css";
 import "./ImageCard.css";
+
 const ImageCard = ({ photo, IsLike, addToFavourites }) => {
   const [hovered, setHovered] = useState(false);
+
   return (
     <div
       className="image-card"
@@ -47,4 +49,5 @@ const ImageCard = ({ photo, IsLike, addToFavourites }) => {
     </div>
   );
 };
+
 export default ImageCard;

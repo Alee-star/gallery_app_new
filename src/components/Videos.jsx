@@ -1,8 +1,8 @@
 import React from "react";
 import GalleryList from "../components/Banner/GalleryList";
 
-const Photos = () => {
+const Videos = () => {
   return <GalleryList />;
 };
 
-export default Photos;
+export default Videos;

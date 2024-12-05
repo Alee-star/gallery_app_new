@@ -2,8 +2,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
+
 const Navbar = ({ handleTabChange }) => {
-  const navItems = ["Home", "Photos", "Favourites"];
+  const navItems = [
+    "Home",
+    "Videos",
+    "Leaderboard",
+    "Challenges",
+    "Favourites",
+  ];
+
   return (
     <nav className="navigation-part">
       <div className="navbar">
@@ -28,4 +36,5 @@ const Navbar = ({ handleTabChange }) => {
     </nav>
   );
 };
+
 export default Navbar;
