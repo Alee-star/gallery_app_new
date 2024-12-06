@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Favourites from "../components/Favourites/Favourites";
-import Navbar from "../components/Navbar/Navbar";
 import "../components/Banner/GalleryList.css";
 import { getFavFromLocalStorage, toggleFavourite } from "../ToggleFunction";
 
