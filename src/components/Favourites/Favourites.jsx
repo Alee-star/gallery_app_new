@@ -3,7 +3,7 @@ import ImageCard from "../Banner/ImageCard";
 import "./Favourites.css";
 
 const Favourites = ({ photos = [], addToFavourites }) => {
-  if (!photos || photos.length === 0) {
+  if (!photos?.length) {
     return <p>No Favourites</p>;
   }
 
@@ -13,7 +13,7 @@ const Favourites = ({ photos = [], addToFavourites }) => {
         <ImageCard
           key={photo.id}
           photo={photo}
-          IsLike={photo.favourite}
+          isLike={photo.favourite}
           addToFavourites={addToFavourites}
         />
       ))}
