@@ -28,7 +28,7 @@ const ImageCard = ({ photo, IsLike, addToFavourites }) => {
               <Button
                 className={`icon-image ${IsLike ? "liked" : ""}`}
                 label={<img src="/assets/like.svg" alt="Like icon" />}
-                onClick={() => addToFavourites(photo.id)}
+                onClick={() => addToFavourites(photo)}
               />
             </li>
           </ul>

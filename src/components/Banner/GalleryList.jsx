@@ -10,13 +10,24 @@ const ImageSection = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
+  const getFavFromLocalStorage = () => {
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+    return favourites;
+  };
+
+  const saveFavInLocalStorage = (favourites) => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  };
+
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
         const photosWithFavourites = response.data.map((photo) => ({
           ...photo,
-          favourite: false,
+          favourite: getFavFromLocalStorage().some(
+            (fav) => fav.id === photo.id
+          ),
         }));
         setPhotos(photosWithFavourites);
       })
@@ -25,10 +36,17 @@ const ImageSection = () => {
       });
   }, []);
 
-  const addToFavourites = (photoId) => {
+  const toggleFavourite = (photo) => {
+    const currentFavourites = getFavFromLocalStorage();
+    const updatedFavourites = currentFavourites.some(
+      (fav) => fav.id === photo.id
+    )
+      ? currentFavourites.filter((fav) => fav.id !== photo.id)
+      : [...currentFavourites, photo];
+    saveFavInLocalStorage(updatedFavourites);
     setPhotos((prevPhotos) =>
-      prevPhotos.map((photo) =>
-        photo.id === photoId ? { ...photo, favourite: !photo.favourite } : photo
+      prevPhotos.map((p) =>
+        p.id === photo.id ? { ...p, favourite: !p.favourite } : p
       )
     );
   };
@@ -47,14 +65,14 @@ const ImageSection = () => {
         {selectedNavItem === "Favourites" ? (
           <Favourites
             photos={photos.filter((photo) => photo.favourite)}
-            addToFavourites={addToFavourites}
+            addToFavourites={toggleFavourite}
           />
         ) : (
           photos.map((photo) => (
             <ImageCard
               key={photo.id}
               photo={photo}
-              addToFavourites={addToFavourites}
+              addToFavourites={toggleFavourite}
               IsLike={photo.favourite}
             />
           ))

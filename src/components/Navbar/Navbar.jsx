@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
 
-const Navbar = ({ selectedNavItem, handleTabChange }) => {
+const Navbar = ({ handleTabChange }) => {
   const navItems = [
     "Home",
     "Videos",
@@ -16,14 +17,14 @@ const Navbar = ({ selectedNavItem, handleTabChange }) => {
       <div className="navbar">
         <ul className="nav-list">
           {navItems.map((item) => (
-            <li
-              key={item}
-              className={`list-item ${
-                selectedNavItem === item ? "active" : ""
-              }`}
-              onClick={() => handleTabChange(item)}
-            >
-              {item}
+            <li key={item} className="list-item">
+              <NavLink
+                to={`/${item.toLowerCase()}`}
+                className={({ isActive }) => (isActive ? "active" : "")}
+                onClick={() => handleTabChange(item)}
+              >
+                {item}
+              </NavLink>
             </li>
           ))}
         </ul>

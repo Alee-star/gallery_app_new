@@ -3,9 +3,10 @@ import ImageCard from "../Banner/ImageCard";
 import "./Favourites.css";
 
 const Favourites = ({ photos, addToFavourites }) => {
-  if (!photos.length) {
+  if (!photos?.length) {
     return <p>No Favourites</p>;
   }
+
   return (
     <>
       {photos.map((photo) => (
