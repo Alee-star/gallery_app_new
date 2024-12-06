@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Heading from "./components/Header/Heading";
+import Navbar from "./components/Navbar/Navbar";
+import FavouritePage from "./pages/FavouritePage";
 import Home from "./pages/Home/Home";
 import Photos from "./pages/Photos";
-import FavouritePage from "./pages/FavouritePage";
-import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 
 function App() {

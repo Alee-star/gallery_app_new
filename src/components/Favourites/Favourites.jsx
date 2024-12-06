@@ -13,7 +13,7 @@ const Favourites = ({ photos = [], addToFavourites }) => {
         <ImageCard
           key={photo.id}
           photo={photo}
-          IsLike={photo.favourite}
+          isLike={photo.favourite}
           addToFavourites={addToFavourites}
         />
       ))}
