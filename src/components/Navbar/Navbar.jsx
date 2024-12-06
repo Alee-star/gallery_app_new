@@ -4,13 +4,7 @@ import Button from "../Button";
 import "./Navbar.css";
 
 const Navbar = ({ handleTabChange }) => {
-  const navItems = [
-    "Home",
-    "Videos",
-    "Leaderboard",
-    "Challenges",
-    "Favourites",
-  ];
+  const navItems = ["Home", "Photos", "Favourites"];
 
   return (
     <nav className="navigation-part">
@@ -21,7 +15,7 @@ const Navbar = ({ handleTabChange }) => {
               <NavLink
                 to={`/${item.toLowerCase()}`}
                 className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={() => handleTabChange(item)}
+                onClick={() => handleTabChange?.(item)}
               >
                 {item}
               </NavLink>
