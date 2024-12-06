@@ -4,20 +4,24 @@ import Button from "../Button";
 import "./Navbar.css";
 
 const Navbar = ({ handleTabChange }) => {
-  const navItems = ["Home", "Photos", "Favourites"];
+  const navItems = [
+    { name: "Home", path: "/home" },
+    { name: "Photos", path: "/photos" },
+    { name: "Favourites", path: "/favourites" },
+  ];
 
   return (
     <nav className="navigation-part">
       <div className="navbar">
         <ul className="nav-list">
           {navItems.map((item) => (
-            <li key={item} className="list-item">
+            <li key={item.name} className="list-item">
               <NavLink
-                to={`/${item.toLowerCase()}`}
+                to={item.path}
                 className={({ isActive }) => (isActive ? "active" : "")}
                 onClick={() => handleTabChange?.(item)}
               >
-                {item}
+                {item.name}
               </NavLink>
             </li>
           ))}

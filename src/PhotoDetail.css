@@ -1,0 +1,21 @@
+.photo-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-detail h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.photo-detail img {
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-detail p {
+  font-size: 16px;
+  font-weight: 500;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../Button";
 import "../Button.css";
 import "./ImageCard.css";
@@ -13,7 +14,9 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="card">
-        <img src={photo.url} alt={photo.title} className="card-image" />
+        <Link to={`/photo/${photo.id}`} className="card-link">
+          <img src={photo.url} alt={photo.title} className="card-image" />
+        </Link>
       </div>
       {hovered && (
         <div className="hover-part">
