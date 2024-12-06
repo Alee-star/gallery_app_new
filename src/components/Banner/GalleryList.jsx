@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../Navbar/Navbar";
 import Favourites from "../Favourites/Favourites";
 import ImageCard from "./ImageCard";
 import "../Favourites/Favourites.css";
@@ -10,6 +9,15 @@ import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
 const ImageSection = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
+
+  const getFavFromLocalStorage = () => {
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+    return favourites;
+  };
+
+  const saveFavInLocalStorage = (favourites) => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  };
 
   useEffect(() => {
     axios
@@ -45,10 +53,6 @@ const ImageSection = () => {
 
   return (
     <div className="gallery-list">
-      {/* <Navbar
-        selectedNavItem={selectedNavItem}
-        handleTabChange={handleTabChange}
-      /> */}
       <div className="image-section">
         {selectedNavItem === "Favourites" ? (
           <Favourites
