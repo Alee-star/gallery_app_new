@@ -7,7 +7,6 @@ import Photos from "./pages/Photos";
 import FavouritePage from "./pages/FavouritePage";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
-import { toggleFavourite } from "./ToggleFunction";
 
 function App() {
   return (
