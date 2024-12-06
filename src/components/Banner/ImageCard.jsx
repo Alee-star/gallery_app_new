@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../Button";
 import "../Button.css";
 import "./ImageCard.css";
 
 const ImageCard = ({ photo, IsLike, addToFavourites }) => {
   const [hovered, setHovered] = useState(false);
-
   return (
     <div
       className="image-card"
@@ -13,7 +13,9 @@ const ImageCard = ({ photo, IsLike, addToFavourites }) => {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="card">
-        <img src={photo.url} alt={photo.title} className="card-image" />
+        <Link to={`/photo/${photo.id}`} className="card-link">
+          <img src={photo.url} alt={photo.title} className="card-image" />
+        </Link>
       </div>
       {hovered && (
         <div className="hover-part">
@@ -28,7 +30,7 @@ const ImageCard = ({ photo, IsLike, addToFavourites }) => {
               <Button
                 className={`icon-image ${IsLike ? "liked" : ""}`}
                 label={<img src="/assets/like.svg" alt="Like icon" />}
-                onClick={() => addToFavourites(photo.id)}
+                onClick={() => addToFavourites(photo)}
               />
             </li>
           </ul>

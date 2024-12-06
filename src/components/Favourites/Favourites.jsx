@@ -2,10 +2,11 @@ import React from "react";
 import ImageCard from "../Banner/ImageCard";
 import "./Favourites.css";
 
-const Favourites = ({ photos, addToFavourites }) => {
-  if (!photos.length) {
+const Favourites = ({ photos = [], addToFavourites }) => {
+  if (!photos || photos.length === 0) {
     return <p>No Favourites</p>;
   }
+
   return (
     <>
       {photos.map((photo) => (
