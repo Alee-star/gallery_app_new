@@ -10,12 +10,24 @@ const ImageSection = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
+  const getFavFromLocalStorage = () => {
+    const favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+    return favourites;
+  };
+
+  const saveFavInLocalStorage = (favourites) => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  };
+
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
         const photosWithFavourites = response.data.map((photo) => ({
           ...photo,
+          favourite: getFavFromLocalStorage().some(
+            (fav) => fav.id === photo.id
+          ),
           favourite: getFavFromLocalStorage().some(
             (fav) => fav.id === photo.id
           ),
