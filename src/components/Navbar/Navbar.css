@@ -103,7 +103,7 @@ a.active {
 .search-container {
   width: 100%;
   max-width: fit-content;
-  height: 40px;
+  height: 50px;
   border-radius: 5px;
   border: 1px solid #000;
   background-color: #fff;
@@ -112,17 +112,24 @@ a.active {
   justify-content: space-between;
 }
 
+@media (min-width: 1250px) {
+  .search-container {
+    min-width: 800px;
+  }
+}
+
 .search-input {
-  font-size: 14px;
+  font-size: 16px;
   border: none;
   outline: none;
+  padding: 10px;
   width: 350px;
   flex-grow: 1;
 }
 
 .search-container img {
   cursor: pointer;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   fill: #7f7f7f;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import GalleryList from "../components/Banner/GalleryList";
 
-const Photos = () => {
-  return <GalleryList />;
+const Photos = ({ searchTerm }) => {
+  return <GalleryList searchTerm={searchTerm} />;
 };
 
 export default Photos;

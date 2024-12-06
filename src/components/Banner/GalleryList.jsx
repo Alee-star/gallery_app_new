@@ -5,7 +5,7 @@ import ImageCard from "./ImageCard";
 import "../Favourites/Favourites.css";
 import "./GalleryList.css";
 
-const ImageSection = () => {
+const ImageSection = ({ searchTerm }) => {
   const [photos, setPhotos] = useState([]);
 
   const getFavFromLocalStorage = () => {
@@ -18,10 +18,12 @@ const ImageSection = () => {
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
         const favouriteIds = getFavFromLocalStorage().map((fav) => fav.id);
-        const photosWithFavourites = response.data.map((photo) => ({
-          ...photo,
-          favourite: favouriteIds.includes(photo.id),
-        }));
+        const photosWithFavourites = response.data
+          .slice(0, 20)
+          .map((photo) => ({
+            ...photo,
+            favourite: favouriteIds.includes(photo.id),
+          }));
         setPhotos(photosWithFavourites);
       })
       .catch((error) => {
@@ -40,10 +42,14 @@ const ImageSection = () => {
     setPhotos(updatedPhotos);
   };
 
+  const filteredPhotos = photos.filter((photo) =>
+    photo.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="gallery-list">
       <div className="image-section">
-        {photos.map((photo) => (
+        {filteredPhotos.map((photo) => (
           <ImageCard
             key={photo.id}
             photo={photo}

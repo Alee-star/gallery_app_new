@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
 
-const Navbar = ({ handleTabChange }) => {
+const Navbar = ({ handleTabChange, handleSearch }) => {
+  const [searchTerm, setSeachTerm] = useState("");
+
   const navItems = [
     { name: "Home", path: "/home" },
     { name: "Photos", path: "/photos" },
     { name: "Favourites", path: "/favourites" },
   ];
+
+  const onSearchChange = (event) => {
+    const value = event.target.value;
+    setSeachTerm(value);
+    handleSearch(value);
+    console.log("Search Term:", value);
+  };
 
   return (
     <nav className="navigation-part">
@@ -34,6 +43,8 @@ const Navbar = ({ handleTabChange }) => {
             type="text"
             className="search-input"
             placeholder="Search Photos"
+            value={searchTerm}
+            onChange={onSearchChange}
           />
           <img src="/assets/search.svg" alt="Search icon" />
         </div>
