@@ -4,12 +4,12 @@ import axios from "axios";
 import "./PhotoDetail.css";
 
 const PhotoDetail = () => {
-  const { id } = useParams();
+  const { photoId } = useParams();
   const [photo, setPhoto] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`https://jsonplaceholder.typicode.com/photos/${id}`)
+      .get(`https://jsonplaceholder.typicode.com/photos/${photoId}`)
       .then((response) => {
         setPhoto(response.data);
       })
