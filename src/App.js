@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Heading from "./components/Header";
 import Home from "./pages/Home";
 import Photos from "./pages/Photos";
-import FavouritePage from "./pages/FavouritePage";
+import FavouritePage from "./pages/Favourite";
 import PhotoDetail from "./PhotoDetail";
 import "./App.css";
 
