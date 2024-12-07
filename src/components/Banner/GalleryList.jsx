@@ -5,7 +5,7 @@ import ImageCard from "./ImageCard";
 import "../Favourites/Favourites.css";
 import "./GalleryList.css";
 
-const ImageSection = ({ searchTerm }) => {
+const ImageSection = ({ searchTerm = "" }) => {
   const [photos, setPhotos] = useState([]);
 
   const getFavFromLocalStorage = () => {

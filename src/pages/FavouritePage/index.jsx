@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Favourites from "../components/Favourites/Favourites";
-import "../components/Banner/GalleryList.css";
-import { getFavFromLocalStorage, toggleFavourite } from "../ToggleFunction";
+import Favourites from "../../components/Favourites";
+import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
+import "../../components/Banner/GalleryList.css";
 
 const FavouritePage = () => {
   const [favouritePhotos, setFavouritePhotos] = useState([]);

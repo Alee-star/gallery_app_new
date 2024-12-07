@@ -1,22 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
 
-const Navbar = ({ handleTabChange, handleSearch }) => {
-  const [searchTerm, setSeachTerm] = useState("");
-
+const Navbar = ({ handleSearch, searchTerm }) => {
   const navItems = [
-    { name: "Home", path: "/home" },
+    { name: "Home", path: "/" },
     { name: "Photos", path: "/photos" },
     { name: "Favourites", path: "/favourites" },
   ];
 
   const onSearchChange = (event) => {
     const value = event.target.value;
-    setSeachTerm(value);
     handleSearch(value);
-    console.log("Search Term:", value);
   };
 
   return (
@@ -28,7 +24,6 @@ const Navbar = ({ handleTabChange, handleSearch }) => {
               <NavLink
                 to={item.path}
                 className={({ isActive }) => (isActive ? "active" : "")}
-                onClick={() => handleTabChange?.(item)}
               >
                 {item.name}
               </NavLink>

@@ -6,6 +6,7 @@ import "./ImageCard.css";
 
 const ImageCard = ({ photo, isLike, addToFavourites }) => {
   const [hovered, setHovered] = useState(false);
+
   return (
     <div
       className="image-card"
