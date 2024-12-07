@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
 import GalleryList from "../../components/GalleryList";
+import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
 
 const Photos = ({ searchTerm }) => {
   const [photos, setPhotos] = useState([]);
