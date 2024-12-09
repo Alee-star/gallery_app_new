@@ -8,6 +8,7 @@ import Photos from "./pages/Photos";
 import FavouritePage from "./pages/Favourite";
 import PhotoDetail from "./PhotoDetail";
 import "./App.css";
+import "./index.css";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
