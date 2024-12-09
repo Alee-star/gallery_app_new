@@ -23,9 +23,9 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
       {hovered && (
         <div className="w-full h-full">
           <ul className="absolute z-2 top-[10px] right-[15px] flex gap-[8px] list-none">
-            <li className="">
+            <li>
               <Button
-                className="flex items-center justify-center w-[40px] h-[40px] rounded-[10px]"
+                className="bg-white flex items-center justify-center w-[40px] h-[40px] rounded-[10px]"
                 label={
                   <img
                     src="/assets/copy.svg"
@@ -35,10 +35,10 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
                 }
               />
             </li>
-            <li className="">
+            <li>
               <Button
                 className={`flex items-center justify-center w-[40px] h-[40px] rounded-[10px] ${
-                  isLike ? "bg-[#f50707]" : ""
+                  isLike ? "bg-[#f50707]" : "bg-white"
                 }`}
                 label={
                   <img
@@ -64,7 +64,7 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
                   <img
                     src="/assets/download.svg"
                     alt="Download icon"
-                    className="h-[24px] w-[24px] filter invert"
+                    className="h-[24px] w-[24px] bg-[#05a081]"
                   />
                 }
               />
