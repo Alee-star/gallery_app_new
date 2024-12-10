@@ -21,9 +21,9 @@ const PhotoDetail = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h2 className="text-[24px] font-semibold">{photo.title}</h2>
+      <h2 className="text-2xl font-semibold">{photo.title}</h2>
       <img src={photo.url} alt={photo.title} className="max-w-full h-auto" />
-      <p className="text-[16px] font-medium">{photo.id}</p>
+      <p className="text-base font-medium">{photo.id}</p>
     </div>
   );
 };

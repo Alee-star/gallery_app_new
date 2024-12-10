@@ -22,53 +22,53 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
       </div>
       {hovered && (
         <div className="w-full h-full">
-          <ul className="absolute z-2 top-[10px] right-[15px] flex gap-[8px] list-none">
+          <ul className="absolute top-3 right-4 flex gap-2 list-none z-2">
             <li>
               <Button
-                className="bg-white flex items-center justify-center w-[40px] h-[40px] rounded-[10px]"
+                className="flex items-center justify-center w-10 h-10 bg-white rounded-xl"
                 label={
                   <img
                     src="/assets/copy.svg"
                     alt="Copy icon"
-                    className="w-[24px] h-[24px] text-[#4a4a4a]"
+                    className="w-6 h-6 text-textGray"
                   />
                 }
               />
             </li>
             <li>
               <Button
-                className={`flex items-center justify-center w-[40px] h-[40px] rounded-[10px] ${
-                  isLike ? "bg-[#f50707]" : "bg-white"
+                className={`flex items-center justify-center w-10 h-10 rounded-xl ${
+                  isLike ? "bg-likeRed" : "bg-white"
                 }`}
                 label={
                   <img
                     src="/assets/like.svg"
                     alt="Like icon"
-                    className="w-[24px] h-[24px] text-[#4a4a4a]"
+                    className="w-6 h-6 text-textGray"
                   />
                 }
                 onClick={() => addToFavourites(photo)}
               />
             </li>
           </ul>
-          <div className="absolute bottom-[10px] right-0 left-0 max-w-full flex justify-between items-center">
-            <div className="flex aligns-center justify-start text-left w-1/2 pl-[20px] overflow-hidden">
-              <span className="max-w-full text-[16px] font-bold leading-[26px] text-white overflow-hidden text-ellipsis whitespace-nowrap block">
+          <div className="absolute bottom-3 right-0 left-0 max-w-full flex justify-between items-center">
+            <div className="flex aligns-center justify-start w-1/2 pl-5 text-left overflow-hidden">
+              <span className="block test-base font-bold leading-6 text-white overflow-hidden text-ellipsis whitespace-nowrap max-w-full">
                 {photo.title}
               </span>
             </div>
-            <div className="text-white bg-[#05a081] border-[#05a081] p-[10px] h-[50px] rounded-[100px] cursor-pointer flex items-center justify-center relative">
+            <div className="relative flex items-center justify-center h-12 p-3 cursor-pointer text-white bg-buttonGreen border-buttonGreen rounded-100">
               <Button
-                className="flex items-center justify-center border-none bg-[#05a081]"
+                className="flex items-center justify-center border-none bg-buttonGreen"
                 label={
                   <img
                     src="/assets/download.svg"
                     alt="Download icon"
-                    className="h-[24px] w-[24px] bg-[#05a081]"
+                    className="w-6 h-6 bg-buttonGreen"
                   />
                 }
               />
-              <span className="text-[16px] font-semibold tracking-[-0.015em] text-white leading-[1.3] pr-[10px]">
+              <span className="text-base font-semibold leading-tight tracking-normal text-white">
                 Download
               </span>
             </div>
