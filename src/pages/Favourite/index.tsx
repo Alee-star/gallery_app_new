@@ -20,10 +20,14 @@ const FavouritePage = () => {
 
   return (
     <div>
-      <GalleryList
-        photos={favouritePhotos}
-        handleToggleFavourite={handleToggleFavourite}
-      />
+      {favouritePhotos.length > 0 ? (
+        <GalleryList
+          photos={favouritePhotos}
+          handleToggleFavourite={handleToggleFavourite}
+        />
+      ) : (
+        <p>No Favourites.</p>
+      )}
     </div>
   );
 };
