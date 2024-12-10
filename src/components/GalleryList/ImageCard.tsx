@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../Button";
 
-const ImageCard = ({ photo, isLike, addToFavourites }) => {
-  const [hovered, setHovered] = useState(false);
+import Button from "../Button";
+import { Photo } from "../../types";
+
+interface ImageCardProps {
+  photo: Photo;
+  isLike: boolean;
+  addToFavourites: (photo: Photo) => void;
+}
+
+const ImageCard = ({ photo, isLike, addToFavourites }: ImageCardProps) => {
+  const [hovered, setHovered] = useState<boolean>(false);
 
   return (
     <div
@@ -33,6 +41,7 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
                     className="w-[24px] h-[24px] text-[#4a4a4a]"
                   />
                 }
+                onClick={() => {}}
               />
             </li>
             <li>
@@ -67,6 +76,7 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
                     className="h-[24px] w-[24px] bg-[#05a081]"
                   />
                 }
+                onClick={() => {}}
               />
               <span className="text-[16px] font-semibold tracking-[-0.015em] text-white leading-[1.3] pr-[10px]">
                 Download

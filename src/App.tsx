@@ -13,7 +13,7 @@ import "./index.css";
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = (term) => {
+  const handleSearch = (term: string) => {
     setSearchTerm(term.toLowerCase());
   };
 

@@ -1,6 +1,18 @@
 import React from "react";
 
-const Button = ({ label, onClick, className, isDisabled = false }) => {
+interface ButtonProps {
+  label: React.ReactNode;
+  onClick: () => void;
+  className?: string;
+  isDisabled?: boolean;
+}
+
+const Button = ({
+  label,
+  onClick,
+  className = "",
+  isDisabled = false,
+}: ButtonProps) => {
   return (
     <button
       className={`text-black cursor-pointer ${className}`}

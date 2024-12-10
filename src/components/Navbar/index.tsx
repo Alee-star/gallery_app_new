@@ -1,15 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 import Button from "../Button";
 
-const Navbar = ({ handleSearch, searchTerm }) => {
+interface NavbarProps {
+  handleSearch: (value: string) => void;
+  searchTerm: string;
+}
+
+const Navbar = ({ handleSearch, searchTerm }: NavbarProps) => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Photos", path: "/photos" },
     { name: "Favourites", path: "/favourites" },
   ];
 
-  const onSearchChange = (event) => {
+  const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     handleSearch(value);
   };
@@ -56,7 +62,8 @@ const Navbar = ({ handleSearch, searchTerm }) => {
         <Button
           className="bg-white text-black cursor-pointer h-[50px] text-[16px] font-semibold border rounded-[6px] border-[#dfdfe0] px-5"
           label="Trending"
-          isDisabled
+          isDisabled={true}
+          onClick={() => {}}
         />
       </div>
     </nav>

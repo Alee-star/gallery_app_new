@@ -2,20 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import { Photo } from "./types";
+
 const PhotoDetail = () => {
-  const { photoId } = useParams();
-  const [photo, setPhoto] = useState(null);
+  const { photoId } = useParams<{ photoId: string }>();
+  const [photo, setPhoto] = useState<Photo | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/photos/${photoId}`)
-      .then((response) => {
-        setPhoto(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching photo details", error);
-      });
-  }, []);
+    if (photoId) {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/photos/${photoId}`)
+        .then((response) => {
+          setPhoto(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching photo details", error);
+        });
+    }
+  }, [photoId]);
 
   if (!photo) return <div>Loading...</div>;
 

@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
 import GalleryList from "../../components/GalleryList";
 import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
+import { Photo } from "../../types";
 
-const Photos = ({ searchTerm }) => {
-  const [photos, setPhotos] = useState([]);
+interface PhotosProps {
+  searchTerm: string;
+}
+
+const Photos = ({ searchTerm }: PhotosProps) => {
+  const [photos, setPhotos] = useState<Photo[]>([]);
 
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
-        const favouriteIds = getFavFromLocalStorage().map((fav) => fav.id);
-        const photosWithFavourites = response.data
+        const favouriteIds = getFavFromLocalStorage().map((fav) =>
+          String(fav.id)
+        );
+        const photosWithFavourites: Photo[] = response.data
           .slice(0, 20)
-          .map((photo) => ({
+          .map((photo: Photo) => ({
             ...photo,
             favourite: favouriteIds.includes(photo.id),
           }));
@@ -24,7 +32,7 @@ const Photos = ({ searchTerm }) => {
       });
   }, []);
 
-  const handleToggleFavourite = (photo) => {
+  const handleToggleFavourite = (photo: Photo) => {
     const currentFavourites = getFavFromLocalStorage();
     const updatedFavourites = toggleFavourite(photo, currentFavourites);
     const updatedPhotos = photos.map((currentPhoto) =>
