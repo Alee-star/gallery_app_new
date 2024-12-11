@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Favourites from "../components/Favourites/Favourites";
-import "../components/Banner/GalleryList.css";
-import { getFavFromLocalStorage, toggleFavourite } from "../ToggleFunction";
+
+import GalleryList from "../../components/GalleryList";
+import { getFavFromLocalStorage, toggleFavourite } from "../../ToggleFunction";
+import { Photo } from "../../types";
 
 const FavouritePage = () => {
-  const [favouritePhotos, setFavouritePhotos] = useState([]);
+  const [favouritePhotos, setFavouritePhotos] = useState<Photo[]>([]);
 
   useEffect(() => {
     const favouritePhotosData = getFavFromLocalStorage();
     setFavouritePhotos(favouritePhotosData);
   }, []);
 
-  const handleToggleFavourite = (photo) => {
+  const handleToggleFavourite = (photo: Photo) => {
     const currentFavourites = getFavFromLocalStorage();
     const updatedFavourites = toggleFavourite(photo, currentFavourites);
     setFavouritePhotos(updatedFavourites);
@@ -19,12 +20,14 @@ const FavouritePage = () => {
 
   return (
     <div>
-      <div className="image-section">
-        <Favourites
+      {favouritePhotos.length ? (
+        <GalleryList
           photos={favouritePhotos}
-          addToFavourites={handleToggleFavourite}
+          handleToggleFavourite={handleToggleFavourite}
         />
-      </div>
+      ) : (
+        <p>No Favourites.</p>
+      )}
     </div>
   );
 };
