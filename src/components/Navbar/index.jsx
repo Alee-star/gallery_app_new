@@ -21,15 +21,19 @@ const Navbar = ({ handleSearch, searchTerm }) => {
           {navItems.map((item) => (
             <li
               key={item.name}
-              className="flex items-center h-12 text-base font-semibold cursor-pointer text-textGray rounded-xl"
+              className="flex items-center h-12 text-base font-semibold cursor-pointer text-text-gray rounded-xl"
             >
               <NavLink
                 to={item.path}
-                className={({ isActive }) =>
-                  isActive
-                    ? "flex items-center h-12 px-5 text-base font-semibold text-white bg-black border border-transparent cursor-pointer rounded-30"
-                    : "flex items-center h-12 text-base font-semibold cursor-pointer text-textGray no-underline rounded-30"
-                }
+                className={({ isActive }) => {
+                  const baseStyle =
+                    "flex items-center h-12 text-base font-semibold cursor-pointer rounded-30";
+                  return `${baseStyle} ${
+                    isActive
+                      ? "px-5 text-white bg-black border border-transparent"
+                      : "text-text-gray no-underline"
+                  }`;
+                }}
               >
                 {item.name}
               </NavLink>
@@ -37,7 +41,7 @@ const Navbar = ({ handleSearch, searchTerm }) => {
           ))}
         </ul>
       </div>
-      <div className="flex flex-row flex-wrap items-center justify-between gap-5 px-5 text-6 font-semibold leading-none tracking-tight text-lightBlack md:px-8 xl:px-20">
+      <div className="flex flex-row flex-wrap items-center justify-between gap-5 px-5 text-6 font-semibold leading-none tracking-tight text-light-black md:px-8 xl:px-20">
         <h4 className="text-2xl">Free Stock Photos</h4>
         <div className="flex items-center justify-between h-12 max-w-fit rounded-5 border border-black bg-white xl:min-w-20 w-full">
           <input
@@ -50,11 +54,11 @@ const Navbar = ({ handleSearch, searchTerm }) => {
           <img
             src="/assets/search.svg"
             alt="Search icon"
-            className="w-9 h-9 text-lightGray cursor-pointer"
+            className="w-9 h-9 text-light-gray cursor-pointer"
           />
         </div>
         <Button
-          className="flex items-center justify-center h-12 px-5 text-base font-semibold bg-white border border-border rounded-5 cursor-pointer text-black"
+          className="flex items-center justify-center h-12 px-5 text-base text-black font-semibold bg-white border border-border rounded-5 cursor-pointer"
           label="Trending"
           isDisabled
         />

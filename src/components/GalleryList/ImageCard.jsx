@@ -30,7 +30,7 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
                   <img
                     src="/assets/copy.svg"
                     alt="Copy icon"
-                    className="w-6 h-6 text-textGray"
+                    className="w-6 h-6 text-text-gray"
                   />
                 }
               />
@@ -38,13 +38,13 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
             <li>
               <Button
                 className={`flex items-center justify-center w-10 h-10 rounded-xl ${
-                  isLike ? "bg-likeRed" : "bg-white"
+                  isLike ? "bg-like-red" : "bg-white"
                 }`}
                 label={
                   <img
                     src="/assets/like.svg"
                     alt="Like icon"
-                    className="w-6 h-6 text-textGray"
+                    className="w-6 h-6 text-text-gray"
                   />
                 }
                 onClick={() => addToFavourites(photo)}
@@ -57,14 +57,14 @@ const ImageCard = ({ photo, isLike, addToFavourites }) => {
                 {photo.title}
               </span>
             </div>
-            <div className="relative flex items-center justify-center h-12 p-3 cursor-pointer text-white bg-buttonGreen border-buttonGreen rounded-100">
+            <div className="relative flex items-center justify-center h-12 p-3 cursor-pointer text-white bg-button-green border-button-green rounded-100">
               <Button
-                className="flex items-center justify-center border-none bg-buttonGreen"
+                className="flex items-center justify-center border-none bg-button-green"
                 label={
                   <img
                     src="/assets/download.svg"
                     alt="Download icon"
-                    className="w-6 h-6 bg-buttonGreen"
+                    className="w-6 h-6 bg-button-green"
                   />
                 }
               />

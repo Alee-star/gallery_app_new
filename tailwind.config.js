@@ -4,13 +4,13 @@ module.exports = {
     extend: {
       colors: {
         white: "#fff",
-        likeRed: "#f50707",
-        buttonGreen: "#05a081",
-        textGray: "#4a4a4a",
+        "like-red": "#f50707",
+        "button-green": "#05a081",
+        "text-gray": "#4a4a4a",
         pink: "#f3c1c1",
-        lightGray: "#7f7f7f",
-        textAsh: "#333",
-        lightBlack: "#2c343e",
+        "light-gray": "#7f7f7f",
+        "text-ash": "#333",
+        "light-black": "#2c343e",
         border: "#dfdfe0",
       },
       borderRadius: {
@@ -28,6 +28,9 @@ module.exports = {
       height: {
         65: "65vh",
         70: "70vh",
+      },
+      backgroundImage: {
+        banner: "url('/public/assets/happy-woman-with-smartphone.jpg')",
       },
     },
   },
