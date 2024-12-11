@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./PhotoDetail.css";
 
 const PhotoDetail = () => {
   const { photoId } = useParams();
@@ -21,10 +20,10 @@ const PhotoDetail = () => {
   if (!photo) return <div>Loading...</div>;
 
   return (
-    <div className="photo-detail">
-      <h2>{photo.title}</h2>
-      <img src={photo.url} alt={photo.title} />
-      <p>{photo.id}</p>
+    <div className="flex flex-col items-center justify-center">
+      <h2 className="text-2xl font-semibold">{photo.title}</h2>
+      <img src={photo.url} alt={photo.title} className="max-w-full h-auto" />
+      <p className="text-base font-medium">{photo.id}</p>
     </div>
   );
 };
