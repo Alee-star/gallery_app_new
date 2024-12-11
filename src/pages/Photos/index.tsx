@@ -16,7 +16,7 @@ const Photos = ({ searchTerm }: PhotosProps) => {
     axios
       .get("https://jsonplaceholder.typicode.com/photos")
       .then((response) => {
-        const favouriteIds = getFavFromLocalStorage().map((fav) =>
+        const favouriteIds = getFavFromLocalStorage().map((fav: Photo) =>
           String(fav.id)
         );
         const photosWithFavourites: Photo[] = response.data

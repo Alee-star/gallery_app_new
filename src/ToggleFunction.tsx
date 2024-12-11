@@ -1,11 +1,11 @@
 import { Photo } from "./types";
 
-export const getFavFromLocalStorage = (): Photo[] => {
+export const getFavFromLocalStorage = () => {
   const favourites = JSON.parse(localStorage.getItem("favourites") || "[]");
   return favourites;
 };
 
-export const saveFavInLocalStorage = (favourites: Photo[]): void => {
+export const saveFavInLocalStorage = (favourites: any) => {
   localStorage.setItem("favourites", JSON.stringify(favourites));
 };
 

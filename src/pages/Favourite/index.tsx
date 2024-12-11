@@ -20,7 +20,7 @@ const FavouritePage = () => {
 
   return (
     <div>
-      {favouritePhotos.length > 0 ? (
+      {favouritePhotos.length ? (
         <GalleryList
           photos={favouritePhotos}
           handleToggleFavourite={handleToggleFavourite}

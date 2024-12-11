@@ -2,7 +2,7 @@ import React from "react";
 
 interface ButtonProps {
   label: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   isDisabled?: boolean;
 }
@@ -14,11 +14,7 @@ const Button = ({
   isDisabled = false,
 }: ButtonProps) => {
   return (
-    <button
-      className={`text-black cursor-pointer ${className}`}
-      onClick={onClick}
-      disabled={isDisabled}
-    >
+    <button className={`${className}`} onClick={onClick} disabled={isDisabled}>
       {label}
     </button>
   );

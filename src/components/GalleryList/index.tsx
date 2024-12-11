@@ -11,7 +11,7 @@ interface ImageSectionProps {
 const ImageSection = ({ photos, handleToggleFavourite }: ImageSectionProps) => {
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:px-[30px] xl:px-[80px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:px-7 xl:px-20">
         {photos.map((photo) => (
           <ImageCard
             key={photo.id}
